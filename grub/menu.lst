@@ -1,0 +1,7 @@
+timeout 0
+default 0
+
+title RandomOS
+
+root (hd0,0)
+kernel /kernel.bin

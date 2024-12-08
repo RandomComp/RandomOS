@@ -1,0 +1,204 @@
+#ifndef _KEYBOARDPS2_H
+#define _KEYBOARDPS2_H
+
+#include "idt.h"
+
+#include "ugsm.h"
+
+enum KeyState {
+	KEY_FREE,
+
+	KEY_PRESSED,
+
+	KEY_HOLDED,
+
+	KEY_RELEASED
+};
+
+enum Key {
+	KEY_NULL,
+
+	KEY_ESCAPE,
+
+	KEY_1,
+
+	KEY_2,
+
+	KEY_3,
+
+	KEY_4,
+
+	KEY_5,
+
+	KEY_6,
+
+	KEY_7,
+
+	KEY_8,
+
+	KEY_9,
+
+	KEY_0,
+
+	KEY_MINUS,
+
+	KEY_EQUAL,
+
+	KEY_BACKSPACE,
+
+	KEY_TAB,
+
+	KEY_Q,
+
+	KEY_W,
+
+	KEY_E,
+
+	KEY_R,
+
+	KEY_T,
+
+	KEY_Y,
+
+	KEY_U,
+
+	KEY_I,
+
+	KEY_O,
+
+	KEY_P,
+
+	KEY_LEFT_BRACKET,
+
+	KEY_RIGHT_BRACKET,
+
+	KEY_ENTER,
+
+	KEY_CONTROL,
+
+	KEY_A,
+
+	KEY_S,
+
+	KEY_D,
+
+	KEY_F,
+
+	KEY_G,
+
+	KEY_H,
+
+	KEY_J,
+
+	KEY_K,
+
+	KEY_L,
+
+	KEY_COLON,
+
+	KEY_QUOTE,
+
+	KEY_BACK_TICK,
+
+	KEY_LEFT_SHIFT,
+
+	KEY_BACKSLASH,
+
+	KEY_Z,
+
+	KEY_X,
+
+	KEY_C,
+
+	KEY_V,
+
+	KEY_B,
+
+	KEY_N,
+
+	KEY_M,
+
+	KEY_COMMA,
+
+	KEY_DOT,
+
+	KEY_SLASH,
+
+	KEY_RIGHT_SHIFT,
+
+	KEY_KEYPAD_STAR,
+
+	KEY_LEFT_ALT,
+
+	KEY_SPACE,
+
+	KEY_CAPSLOCK,
+
+	KEY_F1,
+
+	KEY_F2,
+
+	KEY_F3,
+
+	KEY_F4,
+
+	KEY_F5,
+
+	KEY_F6,
+
+	KEY_F7,
+
+	KEY_F8,
+
+	KEY_F9,
+
+	KEY_F10,
+
+	KEY_NUMBER_PAD_LOCK,
+
+	KEY_SCROLL_LOCK,
+
+	KEY_NUMBER_PAD_7,
+
+	KEY_NUMBER_PAD_8,
+
+	KEY_NUMBER_PAD_9,
+
+	KEY_NUMBER_PAD_MINUS,
+
+	KEY_NUMBER_PAD_4,
+
+	KEY_NUMBER_PAD_5,
+
+	KEY_NUMBER_PAD_6,
+
+	KEY_NUMBER_PAD_PLUS,
+
+	KEY_NUMBER_PAD_1,
+
+	KEY_NUMBER_PAD_2,
+
+	KEY_NUMBER_PAD_3,
+
+	KEY_NUMBER_PAD_0,
+
+	KEY_NUMBER_PAD_DOT,
+
+	KEY_NONE0,
+
+	KEY_NONE1,
+
+	KEY_NONE2,
+
+	KEY_F11,
+
+	KEY_F12
+};
+
+void KeyboardPS2Init(void);
+
+void KeyboardPS2Event(struct Registers* regs);
+
+UGSMGlyphCode scancodeToUGSM(enum Key key);
+
+#endif
